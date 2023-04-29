@@ -59,7 +59,7 @@ function SetHypr() {
     bluez bluez-utils lxappearance xfce4-settings \
     dracula-gtk-theme sweet-cursors-theme-git sweet-folders-icons-git xdg-desktop-portal-hyprland-git
 
-    cp -R -t ~/.config hypr kitty mako waybar swaylock wofi neofetch
+    cp -R -t ~/.config hypr kitty mako waybar swaylock wofi neofetch wallpapers
     chmod +x ~/.config/hypr/xdg-portal-hyprland
 }
 
