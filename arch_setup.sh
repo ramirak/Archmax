@@ -109,7 +109,7 @@ function SetGPU() {
         echo "Setting Nvidia graphic card support.."
         pacman -S --noconfirm nvidia nvidia-settings lib32-nvidia-utils
         sed -i '/MODULES/d' /etc/mkinitcpio.conf
-        echo MODULES=\(nvidia nvidia_modeset nvidia_uvm nvidia_drm\) > /etc/mkinitcpio.conf
+        echo MODULES=\(nvidia nvidia_modeset nvidia_uvm nvidia_drm\) >> /etc/mkinitcpio.conf
     else
         echo "No external GPU found."
         return 0
