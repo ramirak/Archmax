@@ -13,7 +13,7 @@
 - Fish shell as default.
 - Manage your packages with Yay.
 - Blackarch repository.
-- External GPU support.
+- External GPU support (for amd use alias amd {command})
 - Modern look and feel.
 
 ## Shortcuts examples

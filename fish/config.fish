@@ -1,4 +1,10 @@
 alias vim='nvim'
+alias amd='DRI_PRIME=1'
+
+function wifi
+     nmcli device wifi connect $argv --ask
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end

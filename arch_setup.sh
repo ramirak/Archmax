@@ -65,8 +65,8 @@ function SetHypr() {
 
 # Setup Neovim
 function SetNvim() {
-    echo "Installing Neovim.."
-    yay -S --noconfirm nvim
+    echo "Installing Neovim and py dependencies.."
+    yay -S --noconfirm nvim ctags jedi
     cp nvim/init.vim .config/nvim/init.vim
     # Install plugin system
     echo "Installing plugin system.." 
@@ -75,9 +75,13 @@ function SetNvim() {
 
     echo "Setting up IDE.."
     yay -S --noconfirm clangd
+    echo "Setting C.."
     nvim -c CocInstall coc-clang
     nvim -c CocInstall coc-cmake
+    echo "Setting bash.."
     nvim -c CocInstall coc-sh
+    echo "Setting python.."
+    nvim -c cocinstall coc-python
     echo {"clangd.path": "/usr/bin/clangd"} > ~/.config/nvim/coc-settings.json
 }
 
@@ -104,7 +108,12 @@ function SetGPU() {
         echo "Setting AMD graphic card support.."
         yay -S --noconfirm xf86-video-amdgpu mesa
         sed -i '/MODULES/d' /etc/mkinitcpio.conf
-        echo MODULES=\(amdgpu\) >> /etc/mkinitcpio.d 
+        echo MODULES=\(amdgpu\) >> /etc/mkinitcpio.d
+        echo "options amdgpu si_support=1" > /etc/modprobe.d/amdgpu.conf
+        echo "options amdgpu cik_support=1" >> /etc/modprobe.d/amdgpu.conf
+        echo "options radeon si_support=0" > /etc/modprobe.d/radeon.conf
+        echo "options radeon cik_support=0" >> /etc/modprobe.d/radeon.conf
+        echo "blacklist radeon" >> /etc/modprobe.d/radeon.conf
     elif [ `lspci | grep nvidia | wc -l` -gt 0 ] ; then
         echo "Setting Nvidia graphic card support.."
         pacman -S --noconfirm nvidia nvidia-settings lib32-nvidia-utils
