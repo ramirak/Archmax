@@ -1,5 +1,8 @@
 alias vim='nvim'
 alias amd='DRI_PRIME=1'
+alias pypkg='python -m PyInstaller --onefile'
+alias sd='shred -f -n 3 -u -v -z'
+alias gr='gh release create'
 
 function wifi
      nmcli device wifi connect $argv --ask
@@ -14,5 +17,7 @@ if status is-login
         exec Hyprland -- -keeptty
     end
 end
+
+# pactl load-module module-switch-on-connect
 
 neofetch

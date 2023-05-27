@@ -6,16 +6,26 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 50,
-    "modules-left": ["clock","custom/weather","wlr/workspaces"],
+    "modules-left": ["custom/launcher", "clock","custom/weather","wlr/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["network", "bluetooth", "temperature","custom/power_profile","battery","backlight","pulseaudio","pulseaudio#microphone","tray"],
     "hyprland/window": {
         "format": "{}"
     },
 
+    "custom/launcher": {
+        "format": "{}",
+        "tooltip": true,
+        "exec": "echo '{\"text\":\"Start\"}'",
+        "return-type": "json",
+        "on-click": "pkill wofi || wofi --show drun -n",
+    },
+
     "wlr/workspaces": {
-        "disable-scroll": true,
+        //"disable-scroll": true,
         "all-outputs": true,
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-click": "activate",
         "persistent_workspaces": {
             "1": [],

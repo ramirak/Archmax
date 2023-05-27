@@ -50,6 +50,7 @@ tooltip {
 
 #custom-power_profile,
 #custom-weather,
+#custom-launcher,
 #window,
 #clock,
 #battery,
@@ -105,9 +106,10 @@ tooltip {
     margin-right: 60px;
 }
 
+#custom-launcher,
 #clock {
     color: #fab387;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
     margin-left: 10px;
     border-right: 0px;
 }
