@@ -67,7 +67,7 @@ function SetHypr() {
 function SetNvim() {
     echo "Installing Neovim and py dependencies.."
     yay -S --noconfirm nvim ctags jedi
-    cp nvim/init.vim .config/nvim/init.vim
+    cp nvim/init.vim ~/.config/nvim/init.vim
     # Install plugin system
     echo "Installing plugin system.." 
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -92,7 +92,7 @@ function SetFish(){
     echo "Setting fish shell as default.."
     chsh -s /usr/bin/fish
     echo "Copying configuration file.."
-    cp config.fish .config/fish/config.fish
+    cp config.fish ~/.config/fish/config.fish
 }
 
 # Audio
